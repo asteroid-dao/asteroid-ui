@@ -76,7 +76,7 @@ export default proeps => {
   ]
   const [nav, setNav] = useState({ modal: {} })
   const [tSelected, setTSelected] = useState('tmenu2')
-  const [sSelected, setSSelected] = useState('theme')
+  const [sSelected, setSSelected] = useState('github')
   const [bSelected, setBSelected] = useState('bmenu3')
   const [highlight, setHighlight] = useState(getRand(colors))
   const [alerts, setAlerts] = useState([])
@@ -425,6 +425,13 @@ export default proeps => {
           onClick: () => addAlert()
         }
       ]
+    },
+    {
+      key: 'github',
+      name: 'Github',
+      href: 'https://github.com/asteroid-dao/asteroid-ui',
+      icon: 'fab fa-github',
+      target: '_blank'
     }
   ]
   const modal = {
