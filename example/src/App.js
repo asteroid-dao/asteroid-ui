@@ -388,7 +388,7 @@ export default proeps => {
           name: 'Random Position',
           onClick: () => {
             nav.toast({
-              title: 'Ramdom Toast',
+              title: 'Random Toast',
               description: 'Wow, you are lucky!',
               status: getRand(status),
               position: getRand(positions),
@@ -645,7 +645,7 @@ export default () =>{
                 color='white'
                 onClick={() => {
                   nav.toast({
-                    title: 'Ramdom Toast',
+                    title: 'Random Toast',
                     description: 'Wow, you are lucky!',
                     status: 'success',
                     position: getRand(positions),
