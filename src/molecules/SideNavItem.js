@@ -23,6 +23,10 @@ const SideNavItem = ({
         onClick={() => {
           if (!isNil(item.children)) {
             openMenu(item)
+            if (nav.side === 1) {
+              nav.setOpen.toggle()
+              nav.setSide(2)
+            }
           } else if (!isNil(item.onClick)) {
             item.onClick()
           }
@@ -77,7 +81,7 @@ const SideNavItem = ({
           </Box>
         ) : null}
       </Flex>
-      {isOpen !== true
+      {isOpen !== true || nav.side === 1
         ? null
         : compose(
             map(v => (

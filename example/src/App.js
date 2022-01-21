@@ -514,6 +514,18 @@ export default proeps => {
             </Alert>
             <h2>Installation</h2>
             <Highlight language='bash'>yarn add asteroid-ui</Highlight>
+            <p>
+              Add these 2 tags to HTML <code>head</code>.
+            </p>
+            <Highlight language='html'>{`<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+/>
+<link
+  key="fontawesome"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+  rel="stylesheet"
+/>`}</Highlight>
             <h2>How to Use</h2>
             <p>
               <code>setNav</code> will be populated with various useful states

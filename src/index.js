@@ -42,7 +42,6 @@ import TopMenu from './organisms/TopMenu'
 import CircleMenu from './organisms/CircleMenu'
 import SideMenu from './organisms/SideMenu'
 import HorizontalMenu from './organisms/HorizontalMenu'
-import SideNavItem from './molecules/SideNavItem'
 import Modal from './organisms/Modal'
 import Alerts from './organisms/Alerts'
 import Brand from './atoms/Brand'
@@ -88,6 +87,8 @@ const AtomicNav = ({
   useEffect(() => {
     if (is(Function)(setStates))
       setStates({
+        setOpen,
+        setSide,
         bp,
         open,
         side,
