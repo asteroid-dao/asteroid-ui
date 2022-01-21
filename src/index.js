@@ -302,7 +302,7 @@ const AtomicNav = ({
             transition='width .5s, opacity .5s'
             mt={fullscreen ? 0 : height}
           ></Flex>
-          <Flex flex={1} direction='column' position='relative'>
+          <Flex flex={1} direction='column' position='relative' width='100%'>
             <Box
               w={`calc(100% - ${
                 bp === 2
