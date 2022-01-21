@@ -574,7 +574,7 @@ export default () =>{
                       setLoading(null)
                       nav.toast({
                         title: 'Theme Changed',
-                        description: 'The 1s wait was totally unnecesary.',
+                        description: 'The 1s wait was totally unnecessary.',
                         status: 'success',
                         duration: 9000,
                         isClosable: true
