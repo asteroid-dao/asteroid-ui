@@ -431,7 +431,8 @@ export const Nav = ({
   appname = 'Atomic UI',
   logo,
   loading,
-  children
+  children,
+  theme
 }) => {
   const _style = mergeLeft(style, default_style)
   const [nav, setStates] = useState({ modal: {} })
@@ -483,6 +484,7 @@ export const Nav = ({
   return (
     <Core
       {...{
+        theme,
         loading,
         brand,
         setStates,
