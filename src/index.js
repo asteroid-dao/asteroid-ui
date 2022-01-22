@@ -327,7 +327,7 @@ const AtomicNav = ({
                 alerts.length * 48
               }px)`}
               mb={
-                fullscreen || bmenu.length === 0
+                fullscreen || !isBmenu
                   ? 0
                   : `calc(${height} + env(safe-area-inset-bottom))`
               }
@@ -366,26 +366,30 @@ const AtomicNav = ({
       >
         {smenu}
       </Flex>
-      <Box
-        w={`calc(100% - ${side === 2 ? '250px' : side === 1 ? height : '0px'})`}
-        ml={side === 2 ? '250px' : side === 1 ? height : 0}
-        position='fixed'
-        bottom='0'
-        left='0'
-        display={fullscreen ? 'none' : 'flex'}
-        opacity={opacityF ? 1 : 0}
-        transition='opacity .5s, margin .5s, width .5s'
-        h={`calc(${height} + env(safe-area-inset-bottom))`}
-        bg='white'
-      >
-        <Flex h={height} w='100%'>
-          {bmenu}
-        </Flex>
-      </Box>
+      {isBmenu ? (
+        <Box
+          w={`calc(100% - ${
+            side === 2 ? '250px' : side === 1 ? height : '0px'
+          })`}
+          ml={side === 2 ? '250px' : side === 1 ? height : 0}
+          position='fixed'
+          bottom='0'
+          left='0'
+          display={fullscreen ? 'none' : 'flex'}
+          opacity={opacityF ? 1 : 0}
+          transition='opacity .5s, margin .5s, width .5s'
+          h={`calc(${height} + env(safe-area-inset-bottom))`}
+          bg='white'
+        >
+          <Flex h={height} w='100%'>
+            {bmenu}
+          </Flex>
+        </Box>
+      ) : null}
       <CircleMenu
         {...{
           mb: `calc(${
-            fullscreen ? '0px' : height
+            fullscreen || !isBmenu ? '0px' : height
           } + 10px + env(safe-area-inset-bottom))`,
           isCmenu,
           setIsCmenu,
@@ -480,7 +484,6 @@ export const Nav = ({
       }}
     />
   )
-
   return (
     <Core
       {...{
