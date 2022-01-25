@@ -16,7 +16,7 @@ import {
   Button
 } from '@chakra-ui/react'
 import { map, range, append, isNil, slice, concat } from 'ramda'
-import { Nav } from 'atm2'
+import { Nav } from 'asteroid-ui'
 import GithubCSS from './GithubCSS'
 import Dracula from './Dracula'
 export default proeps => {
