@@ -20,9 +20,11 @@ export default ({ style, item, boxSize, fontSize = '25px', opacity = 1 }) => {
       }}
     >
       <Box>
-        <Flex mb={1} justify='center' align='center'>
-          <Box className={item.icon || 'fas fa-home'} fontSize={fontSize} />
-        </Flex>
+        {isNil(item.icon) ? null : (
+          <Flex mb={1} justify='center' align='center'>
+            <Box className={item.icon || 'fas fa-home'} fontSize={fontSize} />
+          </Flex>
+        )}
         <Box
           width='55px'
           textAlign='center'

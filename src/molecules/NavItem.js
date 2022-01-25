@@ -36,13 +36,24 @@ export default ({
       }}
       transition='border .3s, opacity .5s'
     >
+      {isNil(item.icon) ? null : (
+        <Box
+          fontSize={['12px', null, null, null, '16px']}
+          className={item.icon || 'fas fa-home'}
+          mr={[0, null, null, null, 3]}
+          mb={[2, null, null, null, 0]}
+        />
+      )}
       <Box
-        fontSize={['12px', null, null, null, '16px']}
-        className={item.icon || 'fas fa-home'}
-        mr={[0, null, null, null, 3]}
-        mb={[2, null, null, null, 0]}
-      />
-      <Box textAlign='center' fontSize={['11px', null, null, null, '16px']}>
+        textAlign='center'
+        fontSize={[
+          isNil(item.icon) ? '13px' : '11px',
+          null,
+          null,
+          null,
+          '16px'
+        ]}
+      >
         {item.name}
       </Box>
     </Box>
