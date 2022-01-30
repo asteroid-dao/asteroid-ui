@@ -28,7 +28,7 @@ export default ({
           : border
       }}
       flexDirection={['column', null, null, null, 'row']}
-      color={selected ? style.highlight : style.text}
+      color={item.color || (selected ? style.highlight : style.text)}
       cursor='pointer'
       sx={{ ':hover': { opacity: 0.75 } }}
       onClick={() => {

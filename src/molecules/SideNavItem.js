@@ -34,7 +34,7 @@ const SideNavItem = ({
         align='center'
         height={child ? '35px' : height}
         cursor='pointer'
-        color={selected ? style.highlight : style.text}
+        color={item.color || (selected ? style.highlight : style.text)}
         sx={{ ':hover': { opacity: 0.75 } }}
         transition='border .3s'
       >
