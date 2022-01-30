@@ -36,7 +36,14 @@ export default ({
       }}
       transition='border .3s, opacity .5s'
     >
-      {isNil(item.icon) ? null : (
+      {!isNil(item.image) ? (
+        <Image
+          src={item.image}
+          boxSize={['16px', null, null, null, '20px']}
+          mr={[0, null, null, null, 3]}
+          mb={[2, null, null, null, 0]}
+        />
+      ) : isNil(item.icon) ? null : (
         <Box
           fontSize={['12px', null, null, null, '16px']}
           className={item.icon || 'fas fa-home'}
@@ -47,7 +54,7 @@ export default ({
       <Box
         textAlign='center'
         fontSize={[
-          isNil(item.icon) ? '13px' : '11px',
+          isNil(item.icon) && isNil(item.image) ? '13px' : '11px',
           null,
           null,
           null,

@@ -44,7 +44,9 @@ const SideNavItem = ({
           align='center'
           fontSize='20px'
         >
-          {child ? null : is(Object)(item.icon) ? (
+          {child ? null : !isNil(item.image) ? (
+            <Image src={item.image} boxSize='24px' />
+          ) : is(Object)(item.icon) ? (
             <item.icon />
           ) : (
             <Box as='i' className={item.icon || 'fas fa-home'} />
