@@ -436,18 +436,24 @@ export const Nav = ({
   logo,
   loading,
   children,
-  theme
+  theme,
+  side_tabs,
+  side_tab_selected,
+  nav
 }) => {
   const _style = mergeLeft(style, default_style)
-  const [nav, setStates] = useState({ modal: {} })
-  useEffect(() => setNav(nav), [nav])
+  const [_nav, setStates] = useState(nav || { modal: {} })
+  useEffect(() => setNav(_nav), [_nav])
   const [openMenus, setOpenMenus] = useState({})
   const brand = <Image src={logo} sx={{ ...(style.logo || {}) }} />
   const title = <Title {...{ style: _style, appname }} />
   const _smenu = (
     <SideMenu
       {...{
-        nav,
+        tab_selected: side_tab_selected,
+        setStates,
+        tabs: side_tabs,
+        nav: _nav,
         height,
         openMenus,
         setOpenMenus,
@@ -473,7 +479,6 @@ export const Nav = ({
 
   const _bmenu = (
     <HorizontalMenu
-      test={_style}
       {...{
         borderPosition: 't',
         menu: bmenu,

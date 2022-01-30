@@ -75,6 +75,7 @@ export default proeps => {
     'fa fa-hippo'
   ]
   const [nav, setNav] = useState({ modal: {} })
+  const [side_tab_selected, setSideTabSelected] = useState('sidetab1')
   const [tSelected, setTSelected] = useState('tmenu2')
   const [sSelected, setSSelected] = useState('github')
   const [bSelected, setBSelected] = useState('bmenu3')
@@ -154,6 +155,23 @@ export default proeps => {
       )
     )
   }
+  const side_tabs = [
+    {
+      key: 'sidetab1',
+      name: 'Tab 1',
+      onClick: () => setSideTabSelected('sidetab1')
+    },
+    {
+      key: 'sidetab2',
+      name: 'Tab 2',
+      onClick: () => setSideTabSelected('sidetab2')
+    },
+    {
+      key: 'sidetab3',
+      name: 'Tab 3',
+      onClick: () => setSideTabSelected('sidetab3')
+    }
+  ]
   const smenu = [
     {
       key: 'theme',
@@ -463,10 +481,13 @@ export default proeps => {
           setAlerts,
           modal: modal,
           setNav,
+          side_tab_selected,
+          nav,
           bmenu,
           bmenu_selected: bSelected,
           tmenu_selected: tSelected,
           smenu_selected: sSelected,
+          side_tabs,
           tmenu,
           smenu: concat(smenu, _smenu),
           cmenu: concat(cmenu, _cmenu),
