@@ -416,7 +416,7 @@ const Core = props => (
 )
 
 export const Nav = ({
-  modal,
+  modal = {},
   setNav,
   bmenu = [],
   smenu = [],
@@ -443,7 +443,9 @@ export const Nav = ({
 }) => {
   const _style = mergeLeft(style, default_style)
   const [_nav, setStates] = useState(nav || { modal: {} })
-  useEffect(() => setNav(_nav), [_nav])
+  useEffect(() => {
+    if (!isNil(setNav)) setNav(_nav)
+  }, [_nav])
   const [openMenus, setOpenMenus] = useState({})
   const brand = <Image src={logo} sx={{ ...(style.logo || {}) }} />
   const title = <Title {...{ style: _style, appname }} />
@@ -467,7 +469,7 @@ export const Nav = ({
   const _tmenu = (
     <TopMenu
       {...{
-        nav,
+        nav: _nav,
         extra: <AvatarMenu {...{ avatar, dropdown }} />,
         border,
         style: _style,

@@ -479,7 +479,7 @@ export default proeps => {
           loading,
           alerts,
           setAlerts,
-          modal: modal,
+          modal,
           setNav,
           side_tab_selected,
           nav,
