@@ -306,7 +306,9 @@ const AtomicNav = ({
           <Flex flex={1} direction='column' position='relative' width='100%'>
             <Box
               w={`calc(100% - ${
-                bp === 2
+                fullscreen
+                  ? '0px'
+                  : bp === 2
                   ? '250px'
                   : side === 0
                   ? '0px'
