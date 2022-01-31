@@ -319,6 +319,7 @@ const AtomicNav = ({
               position='fixed'
               mt={fullscreen ? 0 : height}
               zIndex={3}
+              bg='white'
             >
               <Alerts {...{ alerts, setAlerts }} />
             </Box>
