@@ -112,6 +112,27 @@ export default proeps => {
       }
     })(range(0, 3))
   )
+  let modal = {
+    title: 'This is a Modal',
+    body: 'Do you want to close this modal?',
+    footer: [
+      { title: 'Close', scheme: 'blue', onClick: nav.modal.onClose },
+      {
+        title: 'Keep it Open',
+        variant: 'ghost',
+        onClick: () => {
+          nav.toast({
+            title: 'Keeping it Open',
+            description: 'Let us know when you want to close it!',
+            status: 'info',
+            duration: 9000,
+            isClosable: true
+          })
+        }
+      }
+    ]
+  }
+
   const cmenu = [
     {
       name: 'Loading',
@@ -125,7 +146,17 @@ export default proeps => {
       name: 'Modal',
       icon: 'fas fa-window-maximize',
       onClick: () => {
-        nav.modal.onOpen()
+        nav.setModal({
+          html: (
+            <Flex justify='center' align='center' p={6} boxSize='100%'>
+              <Image
+                src='https://picsum.photos/1000/1000'
+                maxWidth='100%'
+                maxHeight='100%'
+              />
+            </Flex>
+          )
+        })
       }
     },
     {
@@ -452,26 +483,6 @@ export default proeps => {
       target: '_blank'
     }
   ]
-  const modal = {
-    title: 'This is a Modal',
-    body: 'Do you want to close this modal?',
-    footer: [
-      { title: 'Close', scheme: 'blue', onClick: nav.modal.onClose },
-      {
-        title: 'Keep it Open',
-        variant: 'ghost',
-        onClick: () => {
-          nav.toast({
-            title: 'Keeping it Open',
-            description: 'Let us know when you want to close it!',
-            status: 'info',
-            duration: 9000,
-            isClosable: true
-          })
-        }
-      }
-    ]
-  }
   return (
     <ChakraProvider>
       <Nav
@@ -479,7 +490,6 @@ export default proeps => {
           loading,
           alerts,
           setAlerts,
-          modal,
           setNav,
           side_tab_selected,
           nav,
@@ -807,6 +817,7 @@ export default () =>{
                 bg={highlight}
                 color='white'
                 onClick={() => {
+                  nav.setModal(modal)
                   nav.modal.onOpen()
                 }}
               >

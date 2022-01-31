@@ -55,7 +55,6 @@ const AtomicNav = ({
   tmenu,
   bmenu,
   cmenu,
-  modal,
   title,
   border,
   height,
@@ -72,6 +71,7 @@ const AtomicNav = ({
     md: 1,
     xl: 2
   })
+  const [modal, setModal] = useState(null)
   const [bp, setBP] = useState(2)
   const [side, setSide] = useState(2)
   const [open, setOpen] = useBoolean()
@@ -87,6 +87,7 @@ const AtomicNav = ({
   useEffect(() => {
     if (is(Function)(setStates))
       setStates({
+        setModal,
         setOpen,
         setSide,
         bp,
@@ -402,12 +403,32 @@ const AtomicNav = ({
           menu: cmenu
         }}
       />
-      <Modal
-        isOpen={isOpen}
-        onClose={onClose}
-        isCentered={true}
-        modal={modal}
-      />
+      {isNil(modal) ? null : !isNil(modal.html) ? (
+        <Flex
+          zIndex={2000}
+          bg='rgba(0,0,0,.5)'
+          h='100%'
+          position='fixed'
+          w='100%'
+          height='100%'
+          top='0'
+          left='0'
+          justify='center'
+          align='center'
+          onClick={() => {
+            setModal(null)
+          }}
+        >
+          {modal.html}
+        </Flex>
+      ) : (
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          isCentered={true}
+          modal={modal}
+        />
+      )}
       {!isNil(loading) ? <Loading {...{ style, text: loading }} /> : null}
     </Div100vh>
   )
@@ -420,7 +441,6 @@ const Core = props => (
 )
 
 export const Nav = ({
-  modal = {},
   setNav,
   bmenu = [],
   smenu = [],
@@ -509,7 +529,6 @@ export const Nav = ({
         bmenu: _bmenu,
         tmenu: _tmenu,
         cmenu,
-        modal,
         alerts,
         border,
         height,

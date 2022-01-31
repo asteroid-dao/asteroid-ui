@@ -8,14 +8,15 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button
+  Button,
+  Box
 } from '@chakra-ui/react'
 
 export default ({ modal, isOpen, onClose, isCentered }) => {
   return (
     <Modal {...{ isOpen, onClose, isCentered }}>
       <ModalOverlay />
-      <ModalContent sx={isNil(modal.style) ? {} : modal.style}>
+      <ModalContent sx={isNil(modal.style) ? { width: '1000px' } : modal.style}>
         {isNil(modal.title) ? null : <ModalHeader>{modal.title}</ModalHeader>}
         <ModalCloseButton />
         <ModalBody>{modal.body}</ModalBody>
