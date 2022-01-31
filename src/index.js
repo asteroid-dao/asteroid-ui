@@ -85,27 +85,28 @@ const AtomicNav = ({
   const toast = useToast()
   const height_vh = use100vh()
   useEffect(() => {
-    if (is(Function)(setStates))
-      setStates({
-        setModal,
-        setOpen,
-        setSide,
-        bp,
-        open,
-        side,
-        opacity,
-        opacityC,
-        opacityF,
-        opacityG,
-        modal: { isOpen, onOpen, onClose },
-        toast,
-        isFullscreen: fullscreen,
-        fullscreen: setFullscreen,
-        height:
-          height_vh -
-          (!fullscreen ? height.replace(/px/, '') * 1 : 0) -
-          (fullscreen || !isBmenu ? 0 : height.replace(/px/, '') * 1)
-      })
+    if (is(Function)(setStates)) console.log(alerts)
+    setStates({
+      alert_len: alerts.length,
+      setModal,
+      setOpen,
+      setSide,
+      bp,
+      open,
+      side,
+      opacity,
+      opacityC,
+      opacityF,
+      opacityG,
+      modal: { isOpen, onOpen, onClose },
+      toast,
+      isFullscreen: fullscreen,
+      fullscreen: setFullscreen,
+      height:
+        height_vh -
+        (!fullscreen ? height.replace(/px/, '') * 1 : 0) -
+        (fullscreen || !isBmenu ? 0 : height.replace(/px/, '') * 1)
+    })
   }, [
     height_vh,
     side,
@@ -117,7 +118,8 @@ const AtomicNav = ({
     fullscreen,
     isOpen,
     bp,
-    isBmenu
+    isBmenu,
+    alerts
   ])
 
   useEffect(() => {
