@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Text, Flex, Box, Image, Button } from '@chakra-ui/react'
-import { is, assoc, compose, map, sortBy, isNil } from 'ramda'
+import { mergeLeft, is, assoc, compose, map, sortBy, isNil } from 'ramda'
 
 const SideNavItem = ({
   isOpen,
@@ -35,8 +35,9 @@ const SideNavItem = ({
         height={child ? '35px' : height}
         cursor='pointer'
         color={item.color || (selected ? style.highlight : style.text)}
-        sx={{ ':hover': { opacity: 0.75 } }}
         transition='border .3s'
+        sx={{ ':hover': { opacity: 0.75 } }}
+        sx={mergeLeft(item.sx || {})({ ':hover': { opacity: 0.75 } })}
       >
         <Flex
           boxSize={`calc(${height} - 3px)`}

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Text, Flex, Box, Image, Button } from '@chakra-ui/react'
-import { isNil } from 'ramda'
+import { mergeLeft, isNil } from 'ramda'
 export default ({
   nav,
   border,
@@ -30,11 +30,11 @@ export default ({
       flexDirection={['column', null, null, null, 'row']}
       color={item.color || (selected ? style.highlight : style.text)}
       cursor='pointer'
-      sx={{ ':hover': { opacity: 0.75 } }}
       onClick={() => {
         if (!isNil(item.onClick)) item.onClick()
       }}
       transition='border .3s, opacity .5s'
+      sx={mergeLeft(item.sx || {})({ ':hover': { opacity: 0.75 } })}
     >
       {!isNil(item.image) ? (
         <Image
