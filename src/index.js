@@ -87,7 +87,6 @@ const AtomicNav = ({
   useEffect(() => {
     if (is(Function)(setStates)) console.log(alerts)
     setStates({
-      alert_len: alerts.length,
       setModal,
       setOpen,
       setSide,
@@ -118,8 +117,7 @@ const AtomicNav = ({
     fullscreen,
     isOpen,
     bp,
-    isBmenu,
-    alerts
+    isBmenu
   ])
 
   useEffect(() => {
