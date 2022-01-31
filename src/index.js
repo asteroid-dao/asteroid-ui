@@ -331,6 +331,7 @@ const AtomicNav = ({
                   ? 0
                   : `calc(${height} + env(safe-area-inset-bottom))`
               }
+              id='main-container'
             >
               {children}
             </Box>

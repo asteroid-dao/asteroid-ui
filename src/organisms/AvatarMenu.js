@@ -33,7 +33,7 @@ export default ({ avatar, dropdown }) => {
           />
         </MenuButton>
         {isNil(dropdown) ? null : (
-          <MenuList pr='12px'>
+          <MenuList mr='12px'>
             {compose(
               map(v =>
                 v.type === 'divider' ? (
