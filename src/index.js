@@ -415,11 +415,14 @@ const AtomicNav = ({
           left='0'
           justify='center'
           align='center'
+          cursor='pointer'
           onClick={() => {
             setModal(null)
           }}
         >
-          {modal.html}
+          <Box cursor='default' onClick={e => e.stopPropagation()}>
+            {modal.html}
+          </Box>
         </Flex>
       ) : (
         <Modal
