@@ -45,7 +45,9 @@ const SideNavItem = ({
           align='center'
           fontSize='20px'
         >
-          {child ? null : !isNil(item.image) ? (
+          {child ? null : !isNil(item.html_icon) ? (
+            item.html_icon
+          ) : !isNil(item.image) ? (
             <Image src={item.image} boxSize='24px' />
           ) : is(Object)(item.icon) ? (
             <item.icon />

@@ -85,7 +85,6 @@ const AtomicNav = ({
   const toast = useToast()
   const height_vh = use100vh()
   useEffect(() => {
-    if (is(Function)(setStates)) console.log(alerts)
     setStates({
       setModal,
       setOpen,
