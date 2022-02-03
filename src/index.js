@@ -63,7 +63,8 @@ const AtomicNav = ({
   children,
   style = {},
   loading,
-  isBmenu
+  isBmenu,
+  _fullscreen = false
 }) => {
   const _style = mergeLeft(style, default_style)
   const variant = useBreakpointValue({
@@ -72,11 +73,11 @@ const AtomicNav = ({
     xl: 2
   })
   const [modal, setModal] = useState(null)
-  const [bp, setBP] = useState(2)
-  const [side, setSide] = useState(2)
+  const [bp, setBP] = useState(1)
+  const [side, setSide] = useState(0)
   const [open, setOpen] = useBoolean()
   const [isCmenu, setIsCmenu] = useBoolean()
-  const [fullscreen, setFullscreen] = useBoolean()
+  const [fullscreen, setFullscreen] = useBoolean(_fullscreen)
   const [opacity, setOpacity] = useState(true)
   const [opacityC, setOpacityC] = useState(true)
   const [opacityF, setOpacityF] = useState(true)
@@ -465,7 +466,8 @@ export const Nav = ({
   theme,
   side_tabs,
   side_tab_selected,
-  nav
+  nav,
+  fullscreen = false
 }) => {
   const _style = mergeLeft(style, default_style)
   const [_nav, setStates] = useState(nav || { modal: {} })
@@ -520,6 +522,7 @@ export const Nav = ({
   return (
     <Core
       {...{
+        _fullscreen: fullscreen,
         theme,
         loading,
         brand,
