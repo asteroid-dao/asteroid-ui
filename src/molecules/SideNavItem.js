@@ -5,6 +5,7 @@ import { mergeLeft, is, assoc, compose, map, sortBy, isNil } from 'ramda'
 const SideNavItem = ({
   isOpen,
   height,
+  item_height,
   child = false,
   nav,
   style,
@@ -32,7 +33,7 @@ const SideNavItem = ({
           }
         }}
         align='center'
-        height={child ? '35px' : height}
+        height={child ? '35px' : item_height || height}
         cursor='pointer'
         color={item.color || (selected ? style.highlight : style.text)}
         transition='border .3s'
@@ -40,7 +41,8 @@ const SideNavItem = ({
         sx={mergeLeft(item.sx || {})({ ':hover': { opacity: 0.75 } })}
       >
         <Flex
-          boxSize={`calc(${height} - 3px)`}
+          height={`calc(${item_height || height} - 3px)`}
+          width={`calc(${height} - 3px)`}
           justify='center'
           align='center'
           fontSize='20px'

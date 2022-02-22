@@ -10,6 +10,7 @@ export default ({
   menu,
   selected_key,
   height,
+  item_height,
   nav,
   style,
   tab_selected
@@ -71,6 +72,7 @@ export default ({
             {...{
               height,
               item: v,
+              item_height,
               nav,
               style,
               selected: v.key === selected_key,

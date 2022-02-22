@@ -454,6 +454,7 @@ export const Nav = ({
   bmenu_selected,
   tmenu_selected,
   smenu_selected,
+  smenu_item_height,
   style = {},
   alerts,
   setAlerts,
@@ -489,7 +490,8 @@ export const Nav = ({
         setOpenMenus,
         menu: smenu,
         selected_key: smenu_selected,
-        style: _style
+        style: _style,
+        item_height: smenu_item_height
       }}
     />
   )

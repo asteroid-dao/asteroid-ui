@@ -487,6 +487,7 @@ export default proeps => {
     <ChakraProvider>
       <Nav
         {...{
+          smenu_item_height: '50px',
           loading,
           alerts,
           setAlerts,
