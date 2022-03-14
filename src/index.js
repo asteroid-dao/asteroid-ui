@@ -417,7 +417,7 @@ const AtomicNav = ({
           align='center'
           cursor='pointer'
           onClick={() => {
-            setModal(null)
+            if (modal.closable !== false) setModal(null)
           }}
         >
           <Box cursor='default' onClick={e => e.stopPropagation()}>
